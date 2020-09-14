@@ -1,0 +1,6 @@
+# complied files
+*.out
+*.exe
+
+# temp directory
+tmp/
