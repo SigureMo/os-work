@@ -2,5 +2,12 @@
 *.out
 *.exe
 
+# pycache
+__pycache__/
+*.pyc
+
 # temp directory
 tmp/
+
+# mac
+.DS_Store
