@@ -64,7 +64,7 @@
    P \to Sub1 \to Sub2
    $$
 
-   [test1-1.c](test1-1.c)
+   [lab1-1.c](lab1-1.c)
 
 2. 实现如下所示关系进程，并且每个进程都执行自己独立的程序，打印自己的 `pid`，每个父进程打印其子进程的 `pid`
 
@@ -75,16 +75,16 @@
    \end{aligned}
    $$
 
-   [test1-2.c](test1-2.c)
+   [lab1-2.c](lab1-2.c)
 
 3. 编写一个命令处理程序，能处理 `max(m, n)`、 `min(m, n)`、 `average(m, n, l)` 这几个命令（使用 `exec` 函数族）
 
-   [test1-3](test1-3/)
+   [lab1-3](lab1-3/)
 
    -  由于使用 `exec` 的进程会直接执行该命令而不会回到原来进程，故可在子进程中调用 `exec` 以便回到原进程继续执行命令
    -  示例中使用子进程判断需调用的程序是否已编译，若未编译则自动调用 `gcc` 进行编译
-   -  Usage: `g++ test.cpp && ./a.out <action> <num1> <num2> ...`
-   -  Sample: `g++ test.cpp && ./a.out min 1 3 5`
+   -  Usage: `g++ main.cpp && ./a.out <action> <num1> <num2> ...`
+   -  Sample: `g++ main.cpp && ./a.out min 1 3 5`
 
 ## 2 处理器调度（20'）
 
@@ -104,14 +104,14 @@
 | D    | 6        | 5        |
 | E    | 8        | 2        |
 
-模拟进程调度，给出按照废先来先服务 FCFS、轮转 RR （q=1）、最短进程优先 SJF、最高响应比优先 HRN、进行调度各进程的完成时间、周转时间、带权周转时间
+模拟进程调度，给出按照先来先服务 FCFS、轮转 RR （q=1）、最短进程优先 SJF、最高响应比优先 HRN 进程调度算法分别进行调度各进程对应的完成时间、周转时间、带权周转时间
 
-[test2.cpp](test2.cpp)
+[lab2.cpp](lab2.cpp)
 
 -  Usage:
 
    ```bash
-   g++ test2.cpp && ./a.out <algorithm>
+   g++ lab2.cpp && ./a.out <algorithm>
    N
    <name1> <arrival1> <serve1>
    <name2> <arrival2> <serve2>
@@ -122,7 +122,7 @@
 -  Sample:
 
    ```bash
-   g++ experiments/test2.cpp -o tmp/tmp && tmp/tmp FCFS
+   g++ lab2.cpp -o bin/main.out && bin/main.out FCFS
    5
    A 0 3
    B 2 6
@@ -146,12 +146,12 @@
 
 > 注意，缺页次数不是置换次数，只要不在就算
 
-[test3.cpp](test3.cpp)
+[lab3.cpp](lab3.cpp)
 
 -  Usage:
 
    ```bash
-   g++ test3.cpp && ./a.out <algorithm>
+   g++ lab3.cpp && ./a.out <algorithm>
    N M
    <P1> <P2> ... <PN>
    ```
@@ -159,7 +159,7 @@
 -  Sample1:
 
    ```bash
-   g++ experiments/test3.cpp -o tmp/tmp && tmp/tmp FIFO
+   g++ lab3.cpp -o bin/main.out && bin/main.out FIFO
    20 3
    7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1
 
@@ -168,7 +168,7 @@
 -  Sample2:
 
    ```bash
-   g++ experiments/test3.cpp -o tmp/tmp && tmp/tmp LRU
+   g++ lab3.cpp -o bin/main.out && bin/main.out LRU
    11 5
    4 7 0 7 1 0 1 2 1 2 6
 
@@ -186,12 +186,12 @@
 2. 能对两种算法给定任意序列不同的磁盘请求序列，显示响应磁盘请求的过程
 3. 能统计和报告不同算法情况下响应请求的顺序、移臂的总量
 
-[test4.cpp](test4.cpp)
+[lab4.cpp](lab4.cpp)
 
 -  Usage:
 
    ```bash
-   g++ test4.cpp && ./a.out <algorithm>
+   g++ lab4.cpp && ./a.out <algorithm>
    N S
    <T1> <T2> ... <TN>
    ```
@@ -199,7 +199,7 @@
 -  Sample:
 
    ```bash
-   g++ experiments/test4.cpp -o tmp/tmp && tmp/tmp SSTF
+   g++ lab4.cpp -o bin/main.out && bin/main.out SSTF
    9 100
    55 58 39 18 90 160 150 38 184
 
@@ -226,18 +226,18 @@
 > -  空闲链表法（Free Linked Lists Method）使用缩写 `FLLM`
 > -  位示图法（bitmap）使用 `BIT`
 
-[test5.cpp](test5.cpp)
+[lab5.cpp](lab5.cpp)
 
 -  Usage:
 
    ```bash
-   g++ test5.cpp && ./a.out <algorithm>
+   g++ lab5.cpp && ./a.out <algorithm>
    ```
 
 -  Sample:
 
    ```bash
-   g++ experiments/test5.cpp -o tmp/tmp && tmp/tmp FTM
+   g++ lab5.cpp -o bin/main.out && bin/main.out FTM
    ```
 
 > 本文档转自杨志豪老师实验题目 PDF 版，添加部分个人注记
